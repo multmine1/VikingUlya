@@ -24,9 +24,3 @@ hs_err_pid*
 replay_pid*
 /target/
 /data
-
-# Local explanation reports
-OUR_PREVIOUS_CHANGES_SHORT.txt
-OUR_PREVIOUS_CHANGES_FULL.txt
-OUR_LAMBDA_CHANGES_SHORT.txt
-OUR_LAMBDA_CHANGES_FULL.txt
