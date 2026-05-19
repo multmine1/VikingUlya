@@ -3,6 +3,7 @@ package ru.mephi.vikingdemo.repository;
 import org.springframework.stereotype.Component;
 import ru.mephi.vikingdemo.model.EquipmentItem;
 import ru.mephi.vikingdemo.model.EquipmentItemEntity;
+import ru.mephi.vikingdemo.model.StoredViking;
 import ru.mephi.vikingdemo.model.Viking;
 import ru.mephi.vikingdemo.model.VikingEntity;
 
@@ -12,8 +13,12 @@ import java.util.List;
 public class VikingMapper {
 
     public VikingEntity toVikingEntity(Viking viking) {
+        return toVikingEntity(null, viking);
+    }
+
+    public VikingEntity toVikingEntity(Integer id, Viking viking) {
         return new VikingEntity(
-                null,
+                id,
                 viking.name(),
                 viking.age(),
                 viking.heightCm(),
@@ -51,6 +56,13 @@ public class VikingMapper {
                 entity.hairColor(),
                 entity.beardStyle(),
                 equipment
+        );
+    }
+
+    public StoredViking toStoredViking(VikingEntity entity, List<EquipmentItemEntity> equipmentEntities) {
+        return new StoredViking(
+                entity.id(),
+                toViking(entity, equipmentEntities)
         );
     }
 }
